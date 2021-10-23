@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/kaltura/KalturaFullClient.min.js"></script>
+
+
+<script>
+  var config = new KalturaConfiguration(2264441);
+  config.serviceUrl = 'https://www.kaltura.com/api_v3/testme/  ';
+  var client = new KalturaClient(config);
+  // Note: this is meant only as a sample.
+  // You should NEVER generate sessions on the client,
+  // as this exposes your Admin Secret to users.
+  // Instead, generate a session on the server and pass the
+  // KS to the client.
+  KalturaSessionService.start(
+        "00c05272a1fe1cb5b2d9112d52f42bd0",
+        "tier3.kaltura@gmail.com",
+        2,
+        2264441)
+  .execute(client, function(success, ks) {
+    if (!success || (ks.code && ks.message)) {
+      console.log('Error starting session', success, ks);
+    } else {
+      client.setKs(ks);
+      var filter = {objectType: "KalturaBaseEntryFilter"};
+      filter.statusEqual = "2" /* KalturaEntryStatus.READY */;
+      filter.typeEqual = "1" /* KalturaEntryType.MEDIA_CLIP */;
+      filter.orderBy = "+createdAt" /* KalturaBaseEntryOrderBy.CREATED_AT_ASC */;
+      var pager = {objectType: "KalturaFilterPager"};
+      pager.pageSize = 30;
+      pager.pageIndex = 1;
+
+      KalturaBaseEntryService.listAction(filter, pager)
+        .execute(client, function(success, results) {
+          if (!success || (results && results.code && results.message)) {
+            console.log('Kaltura Error', success, results);
+          } else {
+            console.log('Kaltura Result', results);
+          }
+        });
+
+    }
+  });
+</script>
+
+</body>
+</html>

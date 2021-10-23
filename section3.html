@@ -1,0 +1,54 @@
+<!--Using only JavaScript !!! try to do the following DOM manipulations.
+(Please note, that you are allowed to use jQuery,ES6 or any JS framework).
+Create simple HTML page with basic info, such as sentence, and proceed with the below changes.
+1.	Try to change the color of the H1 element to blue.
+2.	Try to create an additional P element with the following your full name.
+3.	Try to change the color and font-family of the P elements and color.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>section 3</title>
+    <style>
+      .blue{
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="color-change">color toggle</button>
+    <h1 class="header ">Section 3</h1>
+    <div class="container">
+      <button class="style-change">style change</button>
+    </div>
+    <script>
+      //1.)
+      //many versions to write this  , I chose the shortest I could write
+      document.querySelector('.color-change').addEventListener('click', ()=>{
+        document.querySelector('.header').classList.toggle('blue')
+      })
+
+      //2.)
+      // here i desided to do it by steps , get the container , create the 'p' element ,
+      // insert text inside the 'p', insert 'p' to the copntainer
+      const container = document.querySelector('.container')
+      const myName = document.createElement('p')
+      myName.textContent = 'Evgeni Bershadsky'
+      container.append(myName)
+
+      //3.)
+      // instead of adding a class like I did in the first one I add the styles directly to the element
+      document.querySelector('.style-change').addEventListener('click', ()=>{
+        myName.style.color = 'blue'
+        myName.style.fontFamily= 'sans-serif'
+        myName.style.fontWeight= 'bold'
+      })
+
+
+
+    </script>
+  </body>
+</html>

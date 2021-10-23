@@ -1,0 +1,59 @@
+	
+SELECT class FROM courses GROUP BY class HAVING COUNT(DISTINCT student) > 4;
+
+
+SELECT
+    class, COUNT(DISTINCT student)
+FROM
+    courses
+GROUP BY class
+;
+
+| class    | COUNT(student) |
+|----------|----------------|
+| Biology  | 1              |
+| Computer | 1              |
+| English  | 1              |
+| Math     | 6              |
+
+======================================
+==sub query===========================
+
+SELECT
+    class
+FROM
+    (SELECT
+        class, COUNT(DISTINCT student) AS num
+    FROM
+        courses
+    GROUP BY class) AS temp_table
+WHERE
+    num >= 5
+;
+
+===another solution using HAVING===========
+SELECT
+    class
+FROM
+    courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) >= 5
+;
+
+
+==========Q1=================
+
+SELECT
+    entry.id
+FROM 
+    entry
+WHERE 
+    status = 2 AND partner_id = 2264441;
+
+
+==========Q2==================
+
+SELECT entry.id 
+FROM entry 
+WHERE (created_at BETWEEN '02/01/2018 00:00:00.00' AND '02/28/2018 23:59:59.999) AND status = 2 AND partner_id = 2264441; 
+   

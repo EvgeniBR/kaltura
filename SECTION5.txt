@@ -1,0 +1,28 @@
+1.	Create an admin KS for your KMC user using the TestMe console. 
+    djJ8MjI2NDQ0MXxV0psbc8yKGG21tRn8NEOXhEoSNzJFtwl1LgJ_urvn2GtOph2mXvY-9GvoDKur7GQo79W9EUqL58or2PLfpOWw
+2.	Take an Entry Id from your KMC account and find the following details about this entry using the Kaltura API: 
+•	Entry name :   "name": "This entry name shows that I’m starting to understand the Kaltura API",
+•	Duration (in minutes): "duration": 1.03,
+•	Width: "width": 1280,
+•	Flavor Params: "flavorParamsIds": "0,301991,487041,487051,487071,487111",
+•	Status (provide the textual value):  READY
+•	Moderation status (provide the textual value):  TERMS_OF_USE_VIOLATION
+•	Creation time (provide the value in EST time zone): 23/10/2021  
+
+Please specify the service(s) and action(s) you used to locate the above information: 
+Service media
+Action get
+
+3.	Change the name of the entry to “This entry name shows that I’m starting to understand the Kaltura API”
+
+Please specify the service(s) and action(s) you used to apply the above change:
+Service media
+Action post , patch , put
+
+Once you’re done, refresh the KMC to check and verify that the changes you made through API are reflected there.
+
+4.	For this task you will need Fiddler or Chrome dev tools. Grab a thumbnail via API from the 4th second into a video (meaning, 00:04 minutes). 
+i.	First, do it from the KMC itself when you have a network capture tool (Fiddler or Chrome dev tools) open in the background and recording. 
+ii.	After you’ve accomplished this from the KMC, check out the network calls and try to identify the API calls that took place and their parameters. 
+iii.	Go to the testme console and apply the same calls with the relevant parameters on a different entry. 
+iv.	Please attach a short screen recording of the process. 

@@ -1,0 +1,23 @@
+1. Find the partner ID in your KMC account,
+ Provide a Step by step to locate the partner
+  ID and write it down as part of your answer.
+
+--- answer 1 ---
+press the settings icon in the top right corner of the screen the icon looks like a cog-wheel
+the Partner ID will be shown in the top-middle of the screen right under the account tab.
+=================================================================================================
+2. Change the current thumbnail of a video.
+(Specify the name or entry id of the video you’ve updated)
+
+--- answer 2 ---
+the id is : 1_vz7km5vk
+
+=================================================================================================
+3.Restrict a video to play only tomorrow and only in Israel?
+(Specify the name of the video you’ve updated)
+
+
+--- answer 3 ---
+the name is : API
+
+
